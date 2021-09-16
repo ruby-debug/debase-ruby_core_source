@@ -1,7 +1,16 @@
-## [0.10.13](https://github.com/ruby-debug/debase-ruby_core_source/compare/v0.10.12...v0.10.13)
+## [0.10.13](https://my.diffend.io/gems/debase-ruby_core_source/0.10.12/0.10.13)
 
 * updated `required_ruby_version` to require ruby 2.0
-* removed ruby-1.9.3
+* ruby-1.9.3 removed
+
+## [0.10.12](https://my.diffend.io/gems/debase-ruby_core_source/0.10.11/0.10.12)
+
+* ruby-3.0.0-p0 added
+* ruby-3.0.0-preview1 removed
+
+## [0.10.11](https://my.diffend.io/gems/debase-ruby_core_source/0.10.10/0.10.11)
+
+* ruby-3.0.0-preview1 added
 
 ## [0.10.10](https://github.com/ruby-debug/debase-ruby_core_source/compare/v0.10.9...v0.10.10)
 
