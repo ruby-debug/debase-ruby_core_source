@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version = Debase::RubyCoreSource::VERSION
   s.authors = ["Mark Moseley", "Gabriel Horner", "JetBrains RubyMine Team"]
   s.email = "os97673@gmail.com"
-  s.homepage = "http://github.com/os97673/debase-ruby_core_source"
+  s.homepage = "https://github.com/ruby-debug/debase-ruby_core_source"
   s.summary = %q{Provide Ruby core source files}
   s.description = %q{Provide Ruby core source files for C extensions that need them.}
   s.license = "MIT"
