@@ -1,3 +1,7 @@
+## [0.10.13](https://github.com/ruby-debug/debase-ruby_core_source/compare/v0.10.12...v0.10.13)
+
+* updated `required_ruby_version` to require ruby 2.0
+
 ## [0.10.10](https://github.com/ruby-debug/debase-ruby_core_source/compare/v0.10.9...v0.10.10)
 
 * removed ruby 2.7.0 preview sources to avoid falling back on them for release versions
