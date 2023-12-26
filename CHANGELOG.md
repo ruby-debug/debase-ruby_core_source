@@ -1,3 +1,8 @@
+## [3.3.0](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.2.3...3.3.0)
+
+* ruby-3.3.0-preview3 sources removed
+* ruby-3.3.0 sources added
+
 ## [3.2.3](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.2.3...3.2.2)
 
 * ruby-3.3.0-preview3 sources added
