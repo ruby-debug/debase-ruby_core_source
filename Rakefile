@@ -56,7 +56,8 @@ task :add_source do
     hdr_dir = dir + "/" + ruby_dir + "/*.h"
     more_hdr_dir = [
       dir + "/" + ruby_dir + "/ccan/**/*.h",
-      dir + "/" + ruby_dir + "/internal/**/*.h"
+      dir + "/" + ruby_dir + "/internal/**/*.h",
+      dir + "/" + ruby_dir + "/prism/**/*.h"
     ]
     Archive::Tar::Minitar.unpack(tgz, dir)
 
