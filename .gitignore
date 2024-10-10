@@ -4,3 +4,4 @@ pkg
 .ruby-version
 .bundle
 .idea/
+!.idea/vcs.xml
