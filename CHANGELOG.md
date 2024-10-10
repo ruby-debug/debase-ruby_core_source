@@ -1,3 +1,11 @@
+## [3.3.6](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.3.5...3.3.6)
+
+* ruby-3.4.0-preview2 sources added
+
+## [3.3.5](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.3.1...3.3.5)
+
+* ruby-3.4.0-preview1 sources added
+
 ## [3.3.1](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.3.0...3.3.1)
 
 * prism headers added for ruby-3.3.0
