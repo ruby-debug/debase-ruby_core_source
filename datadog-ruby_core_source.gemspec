@@ -1,13 +1,12 @@
 # encoding: utf-8 -*-
 require 'rubygems' unless defined? Gem
-require File.dirname(__FILE__) + "/lib/debase/ruby_core_source/version"
+require File.dirname(__FILE__) + "/lib/datadog/ruby_core_source/version"
 
 Gem::Specification.new do |s|
-  s.name = "debase-ruby_core_source"
-  s.version = Debase::RubyCoreSource::VERSION
+  s.name = "datadog-ruby_core_source"
+  s.version = Datadog::RubyCoreSource::VERSION
   s.authors = ["Mark Moseley", "Gabriel Horner", "JetBrains RubyMine Team"]
-  s.email = "os97673@gmail.com"
-  s.homepage = "https://github.com/ruby-debug/debase-ruby_core_source"
+  s.homepage = "https://github.com/DataDog/datadog-ruby_core_source"
   s.summary = %q{Provide Ruby core source files}
   s.description = %q{Provide Ruby core source files for C extensions that need them.}
   s.license = "MIT"
