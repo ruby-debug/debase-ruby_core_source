@@ -28,7 +28,11 @@ _Adding pre-release versions_. For pre-releases, do not provide the PATCHLEVEL, 
 
 ## Credits
 
-* 
+The following credits are in the upstream `debase-ruby_core_source` README:
+* @valich for 2.5.0-preview1 headers and src-based ruby support
+* @dirknilius for 2.2.3 headers
+* @andremedeiros for 2.1.1 headers
+* @formigarafa for fixing 2.1.0 headers
 
 ## LICENSE
 Ruby library code is MIT license - see LICENSE.txt.  Included ruby headers,

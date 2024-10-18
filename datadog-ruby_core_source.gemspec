@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.name = "datadog-ruby_core_source"
   s.version = Datadog::RubyCoreSource::VERSION
   s.authors = ["Mark Moseley", "Gabriel Horner", "JetBrains RubyMine Team"]
+  s.email = "dev@datadoghq.com"
   s.homepage = "https://github.com/DataDog/datadog-ruby_core_source"
   s.summary = %q{Provide Ruby core source files}
   s.description = %q{Provide Ruby core source files for C extensions that need them.}
