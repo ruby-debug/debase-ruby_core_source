@@ -1,3 +1,7 @@
+## [3.3.7](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.3.6...3.3.7)
+
+* ruby-3.4.0-rc1 sources added
+
 ## [3.3.6](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.3.5...3.3.6)
 
 * ruby-3.4.0-preview2 sources added
