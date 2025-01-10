@@ -23,7 +23,9 @@ def get_dest_dir(ruby_dir, version, tempdir)
     puts "extracted patchlevel '#{patchlevel}'"
   end
   if patchlevel
-    dest_dir = dest_dir + "-p" + patchlevel unless patchlevel == '-1'
+    if !version.include?('-rc') && !version.include?("-preview")
+      dest_dir = dest_dir + "-p" + patchlevel
+    end
   else
     warn "Unable to extract patchlevel from verion.h assuming there is no patchlevel please use a $PATCHLEVEL to specify one"
   end
