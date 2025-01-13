@@ -3,6 +3,8 @@ require 'rbconfig'
 
 module Debase
   module RubyCoreSource
+    MOCK_RUBY_VERSION_KEY = "MOCK_RUBY_VERSION"
+
     REVISION_MAP = {
         # Add pre-release version here since they do not have patchlevel to refer to.
         # Revision can be found at `revision.h` of ruby sources.
@@ -54,7 +56,7 @@ module Debase
         expected_directory
       else
         # Fallback to an older version.
-        ruby_version = Gem::Version.new(RUBY_VERSION)
+        ruby_version = Gem::Version.new(ENV[MOCK_RUBY_VERSION_KEY] || RUBY_VERSION)
         path, = Dir.glob(prefix + 'ruby-*').
           select { |d| File.directory?(d) }.
           map { |d| [d, ruby_source_dir_version(d)] }.
