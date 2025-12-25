@@ -1,5 +1,5 @@
 module Debase
   module RubyCoreSource
-    VERSION = '4.0.0.preview2'
+    VERSION = '4.0.0'
   end
 end
