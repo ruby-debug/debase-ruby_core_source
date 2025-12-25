@@ -1,3 +1,8 @@
+## [4.0.0](https://github.com/ruby-debug/debase-ruby_core_source/compare/4.0.0-preview2...4.0.0)
+
+* 4.0.0 sources added
+* 4.0.0-preview2 sources removed
+
 ## [4.0.0-preview2](https://github.com/ruby-debug/debase-ruby_core_source/compare/3.4.1...4.0.0-preview2)
 
 * 4.0.0-preview2 sources added
