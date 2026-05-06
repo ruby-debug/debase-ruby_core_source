@@ -1,3 +1,7 @@
+## [4.0.1](https://github.com/ruby-debug/debase-ruby_core_source/compare/4.0.0...4.0.1)
+
+* fixed compilation errors due to accidentally removed compiler flags ([RUBY-32941](https://youtrack.jetbrains.com/issue/RUBY-32941))
+
 ## [4.0.0](https://github.com/ruby-debug/debase-ruby_core_source/compare/4.0.0-preview2...4.0.0)
 
 * 4.0.0 sources added
