@@ -28,7 +28,7 @@ module Debase
       # Check if core headers were already downloaded; if so, use them
       if RbConfig::CONFIG["rubyhdrdir"]
         dest_dir = RbConfig::CONFIG["rubyhdrdir"] + "/" + ruby_dir
-        with_cppflags("-I" + dest_dir) {
+        with_cppflags("#{$CPPFLAGS} -I#{dest_dir}") {
           if hdrs.call
             create_makefile(name)
             return true
@@ -40,7 +40,7 @@ module Debase
       dest_dir = deduce_packaged_source_dir(ruby_dir)
       no_source_abort(ruby_dir) unless File.directory?(dest_dir)
 
-      with_cppflags("-I" + dest_dir) {
+      with_cppflags("#{$CPPFLAGS} -I#{dest_dir}") {
         if hdrs.call
           create_makefile(name)
           return true
