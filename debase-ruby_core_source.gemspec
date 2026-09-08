@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
   s.extra_rdoc_files = [ "README.md"]
   s.files = `git ls-files`.split("\n")
-  s.add_development_dependency "archive-tar-minitar", ">= 0.5.2"
+  s.add_development_dependency "minitar", ">= 0.5.2"
   s.add_development_dependency 'rake', '>= 0.9.2'
   s.add_development_dependency 'minitar-cli'
   s.add_development_dependency('test-unit', '~> 3.6.7')

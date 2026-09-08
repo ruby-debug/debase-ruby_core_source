@@ -1,6 +1,6 @@
 require 'tmpdir'
 require 'open-uri'
-require 'archive/tar/minitar'
+require 'minitar'
 require 'zlib'
 require 'fileutils'
 require 'bundler'
