@@ -1,0 +1,120 @@
+#ifndef INTERNAL_STRUCT_H                                /*-*-C-*-vi:se ft=c:*/
+#define INTERNAL_STRUCT_H
+/**
+ * @author     Ruby developers <ruby-core@ruby-lang.org>
+ * @copyright  This  file  is   a  part  of  the   programming  language  Ruby.
+ *             Permission  is hereby  granted,  to  either redistribute  and/or
+ *             modify this file, provided that  the conditions mentioned in the
+ *             file COPYING are met.  Consult the file for details.
+ * @brief      Internal header for Struct.
+ */
+#include "ruby/internal/stdbool.h"     /* for bool */
+#include "ruby/ruby.h"          /* for struct RBasic */
+
+/* Flags of RStruct
+ *
+ * 1-7: RSTRUCT_EMBED_LEN
+ *          If non-zero, the struct is embedded (its contents follow the
+ *          header, rather than being on a separately allocated buffer) and
+ *          these bits are the length of the Struct.
+ */
+enum ruby_rstruct_flags {
+    RSTRUCT_EMBED_LEN_MASK = RUBY_FL_USER7 | RUBY_FL_USER6 | RUBY_FL_USER5 | RUBY_FL_USER4 |
+                                 RUBY_FL_USER3 | RUBY_FL_USER2 | RUBY_FL_USER1,
+    RSTRUCT_EMBED_LEN_SHIFT = (RUBY_FL_USHIFT+1),
+};
+
+struct RStruct {
+    struct RBasic basic;
+    VALUE fields_obj;
+    union {
+        struct {
+            rb_len_t len;
+            const VALUE *ptr;
+        } heap;
+        /* This is a length 1 array because:
+         *   1. GCC has a bug that does not optimize C flexible array members
+         *      (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=102452)
+         *   2. Zero length arrays are not supported by all compilers
+         */
+        const VALUE ary[1];
+    } as;
+};
+
+#define RSTRUCT(obj) ((struct RStruct *)(obj))
+
+/* struct.c */
+VALUE rb_struct_init_copy(VALUE copy, VALUE s);
+VALUE rb_struct_lookup(VALUE s, VALUE idx);
+VALUE rb_struct_s_keyword_init(VALUE klass);
+void rb_struct_define_aref_method(VALUE nstr, ID name, unsigned int off);
+
+static inline rb_len_t RSTRUCT_EMBED_LEN(VALUE st);
+static inline rb_len_t RSTRUCT_LEN_RAW(VALUE st);
+static inline int RSTRUCT_LENINT(VALUE st);
+static inline const VALUE *RSTRUCT_CONST_PTR(VALUE st);
+static inline void RSTRUCT_SET_RAW(VALUE st, rb_len_t k, VALUE v);
+static inline VALUE RSTRUCT_GET_RAW(VALUE st, rb_len_t k);
+
+static inline rb_len_t
+RSTRUCT_EMBED_LEN(VALUE st)
+{
+    rb_len_t ret = FL_TEST_RAW(st, RSTRUCT_EMBED_LEN_MASK);
+    ret >>= RSTRUCT_EMBED_LEN_SHIFT;
+    return ret;
+}
+
+static inline rb_len_t
+RSTRUCT_LEN_RAW(VALUE st)
+{
+    if (FL_TEST_RAW(st, RSTRUCT_EMBED_LEN_MASK)) {
+        return RSTRUCT_EMBED_LEN(st);
+    }
+    else {
+        return RSTRUCT(st)->as.heap.len;
+    }
+}
+
+static inline int
+RSTRUCT_LENINT(VALUE st)
+{
+    return rb_len2int(RSTRUCT_LEN_RAW(st));
+}
+
+static inline const VALUE *
+RSTRUCT_CONST_PTR(VALUE st)
+{
+    const struct RStruct *p = RSTRUCT(st);
+
+    if (FL_TEST_RAW(st, RSTRUCT_EMBED_LEN_MASK)) {
+        return p->as.ary;
+    }
+    else {
+        return p->as.heap.ptr;
+    }
+}
+
+static inline void
+RSTRUCT_SET_RAW(VALUE st, rb_len_t k,  VALUE v)
+{
+    RB_OBJ_WRITE(st, &RSTRUCT_CONST_PTR(st)[k], v);
+}
+
+static inline VALUE
+RSTRUCT_GET_RAW(VALUE st, rb_len_t k)
+{
+    return RSTRUCT_CONST_PTR(st)[k];
+}
+
+static inline VALUE
+RSTRUCT_FIELDS_OBJ(VALUE st)
+{
+    return RSTRUCT(st)->fields_obj;
+}
+
+static inline void
+RSTRUCT_SET_FIELDS_OBJ(VALUE st, VALUE fields_obj)
+{
+    RB_OBJ_WRITE(st, &RSTRUCT(st)->fields_obj, fields_obj);
+}
+#endif /* INTERNAL_STRUCT_H */
